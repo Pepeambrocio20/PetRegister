@@ -39,21 +39,18 @@ public class PetDetailActivity extends AppCompatActivity {
             pet = new Pet("", 0, "", "", "");
         }
 
-        btnSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                pet.setName(etName.getText().toString());
-                pet.setAge(Integer.parseInt(etAge.getText().toString()));
-                pet.setBreed(etBreed.getText().toString());
-                pet.setSex(etSex.getText().toString());
-                pet.setDescription(etDescription.getText().toString());
+        btnSave.setOnClickListener(v -> {
+            pet.setName(etName.getText().toString());
+            pet.setAge(Integer.parseInt(etAge.getText().toString()));
+            pet.setBreed(etBreed.getText().toString());
+            pet.setSex(etSex.getText().toString());
+            pet.setDescription(etDescription.getText().toString());
 
-                Intent resultIntent = new Intent();
-                resultIntent.putExtra("pet", pet);
-                resultIntent.putExtra("position", position);
-                setResult(RESULT_OK, resultIntent);
-                finish(); // Cierra la actividad y devuelve el resultado
-            }
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("pet", pet);
+            resultIntent.putExtra("position", position);
+            setResult(RESULT_OK, resultIntent);
+            finish(); // Cierra la actividad y devuelve el resultado
         });
     }
 }
